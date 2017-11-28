@@ -1,22 +1,23 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: "./src/index.jsx",
     output: {
-        path: path.resolve(__dirname, 'src/public/dist'),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        path: path.resolve(__dirname, 'src/public/dist')
     },
     module: {
         loaders: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                loader: "css-loader"
-            }
+          {
+            test: /\.jsx?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+          },
+          {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader'
+          }
         ]
     }
 };
