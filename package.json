@@ -10,8 +10,10 @@
     "mongoose": "^4.13.3",
     "path": "^0.12.7",
     "react": "^16.1.1",
+    "react-bootstrap-date-picker": "^5.1.0",
     "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "semantic-ui-react": "^0.77.0"
   },
   "scripts": {
     "start": "nodemon server.js",
