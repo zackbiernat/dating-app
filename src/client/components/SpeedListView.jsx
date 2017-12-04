@@ -6,13 +6,14 @@ import mockData from './SampleCards.jsx';
 export default class SpeedListView extends Component {
   render() {
     return (
-      <div className="SpeedListView">
+      <div className="ui four column grid">
         {mockData.SampleCardData.map((person, key) => {
           return (
               <SpeedListCard
                 profile={person}
                 key={key}
                />
+
             )
         })}
       </div>

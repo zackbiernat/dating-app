@@ -5,7 +5,7 @@ export default class SpeedListCard extends Component {
 
   render() {
     return (
-      <div className="SpeedListCard">
+      <div className="column">
         <Card>
           <Image src={this.props.profile.picture} />
           <Card.Content>
