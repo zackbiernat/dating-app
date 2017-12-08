@@ -9,20 +9,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={16}>
-              <Nav />
-
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={14}>
-              <Main />
-
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Main />
       </div>
     );
   }
