@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SpeedListView from './SpeedListView.jsx';
+import ChatView from './Chat.jsx';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 //import ReactCursorPosition from 'react-cursor-position';
-
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +15,10 @@ export default class Main extends Component {
     this.setState({
       visible: !this.state.visible
     })
+  }
+
+  componentDidMount () {
+    console.log('socket', socket);
   }
   render() {
     return (
@@ -37,10 +41,8 @@ export default class Main extends Component {
           </Sidebar>
           <Sidebar.Pusher>
             <Segment basic>
-              <p>
-                <Header as='h3'>Application Content</Header>
-                <SpeedListView />
-              </p>
+              <SpeedListView />
+              <ChatView />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>

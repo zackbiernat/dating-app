@@ -19,7 +19,8 @@
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.0"
+    "semantic-ui-react": "^0.77.0",
+    "socket.io": "^2.0.4"
   },
   "scripts": {
     "start": "nodemon server.js",

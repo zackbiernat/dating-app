@@ -1,10 +1,11 @@
 const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
 require('dotenv').config();
 
-const app = express();
 
 let corsOption = {
   origin: true,
@@ -21,10 +22,18 @@ app.get('*', (req, res) => {
   res.sendFile(__dirname + '/src/public/index.html');
 });
 
+// Socket config
+io.on('connection', (socket) => {
+  console.log('User connected');
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  })
+})
+
 const port = process.env.PORT || 3000;
 
 
-app.listen(port, () => {
+http.listen(port, () => {
   console.log('SERVER STARTED: Listening on port:' + port);
 });
 
