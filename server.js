@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dbRouting = require('./src/server/config.js');
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 require('dotenv').config();
@@ -13,10 +14,10 @@ let corsOption = {
   credentials: true
 };
 app.use(cors(corsOption));
-
 app.use(express.static((__dirname + '/src/public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(dbRouting);
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/src/public/index.html');
