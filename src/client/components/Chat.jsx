@@ -3,84 +3,84 @@ import React, { Component } from 'react';
 export default class ChatView extends Component {
   render () {
     return (
-      <div class="ui comments">
-        <h3 class="ui dividing header">Comments</h3>
-        <div class="comment">
-          <a class="avatar">
+      <div className="ui comments">
+        <h3 className="ui dividing header">Comments</h3>
+        <div className="comment">
+          <a className="avatar">
             <img src="/images/avatar/small/matt.jpg" />
           </a>
-          <div class="content">
-            <a class="author">Matt</a>
-            <div class="metadata">
-              <span class="date">Today at 5:42PM</span>
+          <div className="content">
+            <a className="author">Matt</a>
+            <div className="metadata">
+              <span className="date">Today at 5:42PM</span>
             </div>
-            <div class="text">
+            <div className="text">
               How artistic!
             </div>
-            <div class="actions">
-              <a class="reply">Reply</a>
+            <div className="actions">
+              <a className="reply">Reply</a>
             </div>
           </div>
         </div>
-        <div class="comment">
-          <a class="avatar">
+        <div className="comment">
+          <a className="avatar">
             <img src="/images/avatar/small/elliot.jpg" />
           </a>
-          <div class="content">
-            <a class="author">Elliot Fu</a>
-            <div class="metadata">
-              <span class="date">Yesterday at 12:30AM</span>
+          <div className="content">
+            <a className="author">Elliot Fu</a>
+            <div className="metadata">
+              <span className="date">Yesterday at 12:30AM</span>
             </div>
-            <div class="text">
+            <div className="text">
               <p>This has been very useful for my research. Thanks as well!</p>
             </div>
-            <div class="actions">
-              <a class="reply">Reply</a>
+            <div className="actions">
+              <a className="reply">Reply</a>
             </div>
           </div>
-          <div class="comments">
-            <div class="comment">
-              <a class="avatar">
+          <div className="comments">
+            <div className="comment">
+              <a className="avatar">
                 <img src="/images/avatar/small/jenny.jpg" />
               </a>
-              <div class="content">
-                <a class="author">Jenny Hess</a>
-                <div class="metadata">
-                  <span class="date">Just now</span>
+              <div className="content">
+                <a className="author">Jenny Hess</a>
+                <div className="metadata">
+                  <span className="date">Just now</span>
                 </div>
-                <div class="text">
+                <div className="text">
                   Elliot you are always so right :)
                 </div>
-                <div class="actions">
-                  <a class="reply">Reply</a>
+                <div className="actions">
+                  <a className="reply">Reply</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="comment">
-          <a class="avatar">
+        <div className="comment">
+          <a className="avatar">
             <img src="/images/avatar/small/joe.jpg" />
           </a>
-          <div class="content">
-            <a class="author">Joe Henderson</a>
-            <div class="metadata">
-              <span class="date">5 days ago</span>
+          <div className="content">
+            <a className="author">Joe Henderson</a>
+            <div className="metadata">
+              <span className="date">5 days ago</span>
             </div>
-            <div class="text">
+            <div className="text">
               Dude, this is awesome. Thanks so much
             </div>
-            <div class="actions">
-              <a class="reply">Reply</a>
+            <div className="actions">
+              <a className="reply">Reply</a>
             </div>
           </div>
         </div>
-        <form class="ui reply form">
-          <div class="field">
+        <form className="ui reply form">
+          <div className="field">
             <textarea></textarea>
           </div>
-          <div class="ui blue labeled submit icon button">
-            <i class="icon edit"></i> Add Reply
+          <div className="ui blue labeled submit icon button">
+            <i className="icon edit"></i> Add Reply
           </div>
         </form>
       </div>
