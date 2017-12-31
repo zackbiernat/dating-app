@@ -1,7 +1,23 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+    devServer: {
+      historyApiFallback: {
+        index: path.join(__dirname, "src/public/index.html")
+      },
+      index: path.join(__dirname, "src/public/index.html"),
+
+      compress: true,
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
+      stats: "errors-only",
+      host: 'localhost',
+      port: 3000
+    },
     entry: "./src/index.jsx",
     output: {
         filename: "bundle.js",
@@ -23,5 +39,10 @@ module.exports = {
             loader: "style-loader!css-loader?importLoaders=1"
           }
         ]
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+        title: 'Dating-App',
+        filename: './src/public/dist/index.html'
+      })
+    ]
 };
