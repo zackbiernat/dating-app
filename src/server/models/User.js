@@ -6,6 +6,7 @@ let signUpUser = require('.././utils/userHelpers.js').signUpUser;
 let findUserByEmail = require('.././utils/userHelpers.js').findUserByEmail;
 
 exports.getUserProfile = (req, res) => {
+  console.log(req.query)
   let email = req.query.email;
   MongoClient.connect(url, (err, db) => {
     if (err) {

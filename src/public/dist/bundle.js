@@ -40864,6 +40864,7 @@ var SignUp = function (_Component) {
 
     _this.state = {
       username: '',
+      email: '',
       age: 18,
       state: '',
       zip: 99999,
@@ -40871,6 +40872,7 @@ var SignUp = function (_Component) {
       seeking: '',
       scene: []
     };
+    _this.handleCreateProfile = _this.handleCreateProfile.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
     return _this;
   }
@@ -40965,6 +40967,22 @@ var SignUp = function (_Component) {
               _react2.default.createElement('input', { onChange: function onChange(e) {
                   return _this2.handleChange(e);
                 }, type: 'text', name: 'username', placeholder: 'Pick a username' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'field' },
+            _react2.default.createElement(
+              'label',
+              null,
+              'Username'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'field' },
+              _react2.default.createElement('input', { onChange: function onChange(e) {
+                  return _this2.handleChange(e);
+                }, type: 'text', name: 'email', placeholder: 'What\'s your email?' })
             )
           ),
           _react2.default.createElement(
@@ -41497,7 +41515,7 @@ var SignUp = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'ui button' },
+            { onClick: this.handleCreateProfile, className: 'ui button' },
             'Create Profile'
           )
         )

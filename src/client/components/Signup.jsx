@@ -9,6 +9,7 @@ export default class SignUp extends Component {
     super(props);
     this.state = {
       username: '',
+      email: '',
       age: 18,
       state: '',
       zip: 99999,
@@ -16,6 +17,7 @@ export default class SignUp extends Component {
       seeking: '',
       scene: []
     }
+    this.handleCreateProfile = this.handleCreateProfile.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -83,6 +85,12 @@ export default class SignUp extends Component {
           <label>Username</label>
           <div className="field">
             <input onChange={e => this.handleChange(e)} type="text" name="username" placeholder="Pick a username" />
+          </div>
+        </div>
+        <div className="field">
+          <label>Username</label>
+          <div className="field">
+            <input onChange={e => this.handleChange(e)} type="text" name="email" placeholder="What's your email?" />
           </div>
         </div>
         <div className="field">
@@ -211,7 +219,7 @@ export default class SignUp extends Component {
             <option value="musician">Musician</option>
           </select>
         </div>
-        <div className="ui button">Create Profile</div>
+        <div onClick={this.handleCreateProfile} className="ui button">Create Profile</div>
       </form>
       </div>
     );
