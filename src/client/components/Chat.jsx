@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PostUser } from './../Utils/api.jsx';
 
 export default class ChatView extends Component {
   constructor (props) {

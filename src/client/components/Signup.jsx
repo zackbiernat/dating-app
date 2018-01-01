@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Container from 'semantic-ui-react';
+import { PostUser } from './../Utils/api.jsx';
+
 import './../../style/form.css';
 
 
@@ -20,17 +21,15 @@ export default class SignUp extends Component {
 
   handleChange (e) {
     e.preventDefault();
-    console.log('E', e.target.name, 'HTML', e.target.innerHTML, 'targ', e.target.value);
     let name = e.target.name;
     let value = e.target.value;
     let obj = this.state;
     obj[name] = value;
     this.setState(obj);
-    console.log(this.state)
+    // POST request to create profile
   }
 
   addScene (e) {
-    console.log('val',e.target.value);
     let scenes = this.state.scene;
     scenes.push(e.target.value);
     this.setState({
@@ -62,6 +61,14 @@ export default class SignUp extends Component {
     this.setState({
       scene: scenes
     });
+  }
+
+  handleCreateProfile () {
+    PostUser(this.state, (err, response) => {
+      if (!err) {
+        console.log('Created profile', response)
+      }
+    })
   }
 
   render() {
