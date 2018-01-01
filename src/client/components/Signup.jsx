@@ -20,7 +20,13 @@ export default class SignUp extends Component {
 
   handleChange (e) {
     e.preventDefault();
-    console.log('E', e.target.name, 'HTML', e.target.innerHTML, 'targ', e.target);
+    console.log('E', e.target.name, 'HTML', e.target.innerHTML, 'targ', e.target.value);
+    let name = e.target.name;
+    let value = e.target.value;
+    let obj = this.state;
+    obj[name] = value;
+    this.setState(obj);
+    console.log(this.state)
   }
 
   addScene (e) {
@@ -49,7 +55,6 @@ export default class SignUp extends Component {
         break;
       }
     }
-
     let scenes = this.state.scene;
     console.log(scenes, "scenes", counter, 'index')
     scenes.splice(counter, 1);
@@ -176,7 +181,6 @@ export default class SignUp extends Component {
           })}
         </div>
         <div className="field">
-          <label>Scene</label>
           <select onChange={e => this.addScene(e)} multiple="" className="ui dropdown">
             <option value="">Select scenes</option>
             <option name="Hipster" value="hipster">Hipster</option>

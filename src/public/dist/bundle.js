@@ -26689,10 +26689,6 @@ var _Menu2 = __webpack_require__(490);
 
 var _Menu3 = _interopRequireDefault(_Menu2);
 
-var _Button2 = __webpack_require__(506);
-
-var _Button3 = _interopRequireDefault(_Button2);
-
 var _Segment2 = __webpack_require__(520);
 
 var _Segment3 = _interopRequireDefault(_Segment2);
@@ -26737,7 +26733,7 @@ var Main = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
 
     _this.state = {
-      visible: false
+      visible: true
     };
     _this.toggleVisibility = _this.toggleVisibility.bind(_this);
     return _this;
@@ -26762,11 +26758,6 @@ var Main = function (_Component) {
         'div',
         { className: 'Main' },
         _react2.default.createElement(
-          _Button3.default,
-          { onClick: this.toggleVisibility },
-          'Toggle Visibility'
-        ),
-        _react2.default.createElement(
           _Sidebar3.default.Pushable,
           { as: _Segment3.default },
           _react2.default.createElement(
@@ -26776,19 +26767,13 @@ var Main = function (_Component) {
               _Menu3.default.Item,
               { name: 'home' },
               _react2.default.createElement(_Icon3.default, { name: 'home' }),
-              'Home'
+              'Singles Feed'
             ),
             _react2.default.createElement(
               _Menu3.default.Item,
-              { name: 'gamepad' },
-              _react2.default.createElement(_Icon3.default, { name: 'gamepad' }),
-              'Games'
-            ),
-            _react2.default.createElement(
-              _Menu3.default.Item,
-              { name: 'camera' },
-              _react2.default.createElement(_Icon3.default, { name: 'camera' }),
-              'Channels'
+              { name: 'chat' },
+              _react2.default.createElement(_Icon3.default, { name: 'chat' }),
+              'My Chats'
             )
           ),
           _react2.default.createElement(
@@ -26797,7 +26782,6 @@ var Main = function (_Component) {
             _react2.default.createElement(
               _Segment3.default,
               { basic: true },
-              _react2.default.createElement(_SpeedListView2.default, null),
               _react2.default.createElement(_Chat2.default, null),
               _react2.default.createElement(_Signup2.default, null)
             )
@@ -38301,339 +38285,7 @@ exports.default = MenuMenu;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 506 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _toConsumableArray2 = __webpack_require__(86);
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
-var _extends2 = __webpack_require__(2);
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _classCallCheck2 = __webpack_require__(10);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(13);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(14);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(16);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _invoke2 = __webpack_require__(44);
-
-var _invoke3 = _interopRequireDefault(_invoke2);
-
-var _isNil2 = __webpack_require__(59);
-
-var _isNil3 = _interopRequireDefault(_isNil2);
-
-var _classnames = __webpack_require__(4);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lib = __webpack_require__(5);
-
-var _Icon = __webpack_require__(47);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-var _Label = __webpack_require__(225);
-
-var _Label2 = _interopRequireDefault(_Label);
-
-var _ButtonContent = __webpack_require__(517);
-
-var _ButtonContent2 = _interopRequireDefault(_ButtonContent);
-
-var _ButtonGroup = __webpack_require__(518);
-
-var _ButtonGroup2 = _interopRequireDefault(_ButtonGroup);
-
-var _ButtonOr = __webpack_require__(519);
-
-var _ButtonOr2 = _interopRequireDefault(_ButtonOr);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * A Button indicates a possible user action.
- * @see Form
- * @see Icon
- * @see Label
- */
-var Button = function (_Component) {
-  (0, _inherits3.default)(Button, _Component);
-
-  function Button() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck3.default)(this, Button);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Button.__proto__ || Object.getPrototypeOf(Button)).call.apply(_ref, [this].concat(args))), _this), _this.computeElementType = function () {
-      var _this$props = _this.props,
-          attached = _this$props.attached,
-          label = _this$props.label;
-
-
-      if (!(0, _isNil3.default)(attached) || !(0, _isNil3.default)(label)) return 'div';
-    }, _this.computeTabIndex = function (ElementType) {
-      var _this$props2 = _this.props,
-          disabled = _this$props2.disabled,
-          tabIndex = _this$props2.tabIndex;
-
-
-      if (!(0, _isNil3.default)(tabIndex)) return tabIndex;
-      if (disabled) return -1;
-      if (ElementType === 'div') return 0;
-    }, _this.focus = function () {
-      return (0, _invoke3.default)(_this.ref, 'focus');
-    }, _this.handleClick = function (e) {
-      var disabled = _this.props.disabled;
-
-
-      if (disabled) {
-        e.preventDefault();
-        return;
-      }
-
-      (0, _invoke3.default)(_this.props, 'onClick', e, _this.props);
-    }, _this.handleRef = function (c) {
-      return _this.ref = c;
-    }, _this.hasIconClass = function () {
-      var _this$props3 = _this.props,
-          labelPosition = _this$props3.labelPosition,
-          children = _this$props3.children,
-          content = _this$props3.content,
-          icon = _this$props3.icon;
-
-
-      if (icon === true) return true;
-      return icon && (labelPosition || _lib.childrenUtils.isNil(children) && (0, _isNil3.default)(content));
-    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-  }
-
-  (0, _createClass3.default)(Button, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          active = _props.active,
-          animated = _props.animated,
-          attached = _props.attached,
-          basic = _props.basic,
-          children = _props.children,
-          circular = _props.circular,
-          className = _props.className,
-          color = _props.color,
-          compact = _props.compact,
-          content = _props.content,
-          disabled = _props.disabled,
-          floated = _props.floated,
-          fluid = _props.fluid,
-          icon = _props.icon,
-          inverted = _props.inverted,
-          label = _props.label,
-          labelPosition = _props.labelPosition,
-          loading = _props.loading,
-          negative = _props.negative,
-          positive = _props.positive,
-          primary = _props.primary,
-          secondary = _props.secondary,
-          size = _props.size,
-          toggle = _props.toggle;
-
-
-      var baseClasses = (0, _classnames2.default)(color, size, (0, _lib.useKeyOnly)(active, 'active'), (0, _lib.useKeyOnly)(basic, 'basic'), (0, _lib.useKeyOnly)(circular, 'circular'), (0, _lib.useKeyOnly)(compact, 'compact'), (0, _lib.useKeyOnly)(fluid, 'fluid'), (0, _lib.useKeyOnly)(this.hasIconClass(), 'icon'), (0, _lib.useKeyOnly)(inverted, 'inverted'), (0, _lib.useKeyOnly)(loading, 'loading'), (0, _lib.useKeyOnly)(negative, 'negative'), (0, _lib.useKeyOnly)(positive, 'positive'), (0, _lib.useKeyOnly)(primary, 'primary'), (0, _lib.useKeyOnly)(secondary, 'secondary'), (0, _lib.useKeyOnly)(toggle, 'toggle'), (0, _lib.useKeyOrValueAndKey)(animated, 'animated'), (0, _lib.useKeyOrValueAndKey)(attached, 'attached'));
-      var labeledClasses = (0, _classnames2.default)((0, _lib.useKeyOrValueAndKey)(labelPosition || !!label, 'labeled'));
-      var wrapperClasses = (0, _classnames2.default)((0, _lib.useKeyOnly)(disabled, 'disabled'), (0, _lib.useValueAndKey)(floated, 'floated'));
-
-      var rest = (0, _lib.getUnhandledProps)(Button, this.props);
-      var ElementType = (0, _lib.getElementType)(Button, this.props, this.computeElementType);
-      var tabIndex = this.computeTabIndex(ElementType);
-
-      if (!(0, _isNil3.default)(label)) {
-        var buttonClasses = (0, _classnames2.default)('ui', baseClasses, 'button', className);
-        var containerClasses = (0, _classnames2.default)('ui', labeledClasses, 'button', className, wrapperClasses);
-        var labelElement = _Label2.default.create(label, { defaultProps: {
-            basic: true,
-            pointing: labelPosition === 'left' ? 'right' : 'left'
-          } });
-
-        return _react2.default.createElement(
-          ElementType,
-          (0, _extends3.default)({}, rest, { className: containerClasses, onClick: this.handleClick }),
-          labelPosition === 'left' && labelElement,
-          _react2.default.createElement(
-            'button',
-            { className: buttonClasses, disabled: disabled, ref: this.handleRef, tabIndex: tabIndex },
-            _Icon2.default.create(icon),
-            ' ',
-            content
-          ),
-          (labelPosition === 'right' || !labelPosition) && labelElement
-        );
-      }
-
-      var classes = (0, _classnames2.default)('ui', baseClasses, wrapperClasses, labeledClasses, 'button', className);
-      var hasChildren = !_lib.childrenUtils.isNil(children);
-
-      return _react2.default.createElement(
-        ElementType,
-        (0, _extends3.default)({}, rest, {
-          className: classes,
-          disabled: disabled && ElementType === 'button' || undefined,
-          onClick: this.handleClick,
-          ref: this.handleRef,
-          role: 'button',
-          tabIndex: tabIndex
-        }),
-        hasChildren && children,
-        !hasChildren && _Icon2.default.create(icon),
-        !hasChildren && content
-      );
-    }
-  }]);
-  return Button;
-}(_react.Component);
-
-Button.defaultProps = {
-  as: 'button'
-};
-Button._meta = {
-  name: 'Button',
-  type: _lib.META.TYPES.ELEMENT
-};
-Button.Content = _ButtonContent2.default;
-Button.Group = _ButtonGroup2.default;
-Button.Or = _ButtonOr2.default;
-Button.handledProps = ['active', 'animated', 'as', 'attached', 'basic', 'children', 'circular', 'className', 'color', 'compact', 'content', 'disabled', 'floated', 'fluid', 'icon', 'inverted', 'label', 'labelPosition', 'loading', 'negative', 'onClick', 'positive', 'primary', 'secondary', 'size', 'tabIndex', 'toggle'];
-Button.propTypes = process.env.NODE_ENV !== "production" ? {
-  /** An element type to render as (string or function). */
-  as: _lib.customPropTypes.as,
-
-  /** A button can show it is currently the active user selection. */
-  active: _propTypes2.default.bool,
-
-  /** A button can animate to show hidden content. */
-  animated: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.oneOf(['fade', 'vertical'])]),
-
-  /** A button can be attached to other content. */
-  attached: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.oneOf(['left', 'right', 'top', 'bottom'])]),
-
-  /** A basic button is less pronounced. */
-  basic: _propTypes2.default.bool,
-
-  /** Primary content. */
-  children: _lib.customPropTypes.every([_propTypes2.default.node, _lib.customPropTypes.disallow(['label']), _lib.customPropTypes.givenProps({
-    icon: _propTypes2.default.oneOfType([_propTypes2.default.string.isRequired, _propTypes2.default.object.isRequired, _propTypes2.default.element.isRequired])
-  }, _lib.customPropTypes.disallow(['icon']))]),
-
-  /** A button can be circular. */
-  circular: _propTypes2.default.bool,
-
-  /** Additional classes. */
-  className: _propTypes2.default.string,
-
-  /** A button can have different colors */
-  color: _propTypes2.default.oneOf([].concat((0, _toConsumableArray3.default)(_lib.SUI.COLORS), ['facebook', 'google plus', 'instagram', 'linkedin', 'twitter', 'vk', 'youtube'])),
-
-  /** A button can reduce its padding to fit into tighter spaces. */
-  compact: _propTypes2.default.bool,
-
-  /** Shorthand for primary content. */
-  content: _lib.customPropTypes.contentShorthand,
-
-  /** A button can show it is currently unable to be interacted with. */
-  disabled: _propTypes2.default.bool,
-
-  /** A button can be aligned to the left or right of its container. */
-  floated: _propTypes2.default.oneOf(_lib.SUI.FLOATS),
-
-  /** A button can take the width of its container. */
-  fluid: _propTypes2.default.bool,
-
-  /** Add an Icon by name, props object, or pass an <Icon />. */
-  icon: _lib.customPropTypes.some([_propTypes2.default.bool, _propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.element]),
-
-  /** A button can be formatted to appear on dark backgrounds. */
-  inverted: _propTypes2.default.bool,
-
-  /** Add a Label by text, props object, or pass a <Label />. */
-  label: _lib.customPropTypes.some([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.element]),
-
-  /** A labeled button can format a Label or Icon to appear on the left or right. */
-  labelPosition: _propTypes2.default.oneOf(['right', 'left']),
-
-  /** A button can show a loading indicator. */
-  loading: _propTypes2.default.bool,
-
-  /** A button can hint towards a negative consequence. */
-  negative: _propTypes2.default.bool,
-
-  /**
-   * Called after user's click.
-   * @param {SyntheticEvent} event - React's original SyntheticEvent.
-   * @param {object} data - All props.
-   */
-  onClick: _propTypes2.default.func,
-
-  /** A button can hint towards a positive consequence. */
-  positive: _propTypes2.default.bool,
-
-  /** A button can be formatted to show different levels of emphasis. */
-  primary: _propTypes2.default.bool,
-
-  /** A button can be formatted to show different levels of emphasis. */
-  secondary: _propTypes2.default.bool,
-
-  /** A button can have different sizes. */
-  size: _propTypes2.default.oneOf(_lib.SUI.SIZES),
-
-  /** A button can receive focus. */
-  tabIndex: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-
-  /** A button can be formatted to toggle on and off. */
-  toggle: _propTypes2.default.bool
-} : {};
-
-
-Button.create = (0, _lib.createShorthandFactory)(Button, function (value) {
-  return { content: value };
-});
-
-exports.default = Button;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
+/* 506 */,
 /* 507 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39818,297 +39470,9 @@ exports.default = LabelGroup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 517 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends2 = __webpack_require__(2);
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _classnames = __webpack_require__(4);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lib = __webpack_require__(5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Used in some Button types, such as `animated`.
- */
-function ButtonContent(props) {
-  var children = props.children,
-      className = props.className,
-      content = props.content,
-      hidden = props.hidden,
-      visible = props.visible;
-
-  var classes = (0, _classnames2.default)((0, _lib.useKeyOnly)(visible, 'visible'), (0, _lib.useKeyOnly)(hidden, 'hidden'), 'content', className);
-  var rest = (0, _lib.getUnhandledProps)(ButtonContent, props);
-  var ElementType = (0, _lib.getElementType)(ButtonContent, props);
-
-  return _react2.default.createElement(
-    ElementType,
-    (0, _extends3.default)({}, rest, { className: classes }),
-    _lib.childrenUtils.isNil(children) ? content : children
-  );
-}
-
-ButtonContent.handledProps = ['as', 'children', 'className', 'content', 'hidden', 'visible'];
-ButtonContent._meta = {
-  name: 'ButtonContent',
-  parent: 'Button',
-  type: _lib.META.TYPES.ELEMENT
-};
-
-ButtonContent.propTypes = process.env.NODE_ENV !== "production" ? {
-  /** An element type to render as (string or function). */
-  as: _lib.customPropTypes.as,
-
-  /** Primary content. */
-  children: _propTypes2.default.node,
-
-  /** Additional classes. */
-  className: _propTypes2.default.string,
-
-  /** Shorthand for primary content. */
-  content: _lib.customPropTypes.contentShorthand,
-
-  /** Initially hidden, visible on hover. */
-  hidden: _propTypes2.default.bool,
-
-  /** Initially visible, hidden on hover. */
-  visible: _propTypes2.default.bool
-} : {};
-
-exports.default = ButtonContent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 518 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends2 = __webpack_require__(2);
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _classnames = __webpack_require__(4);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lib = __webpack_require__(5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Buttons can be grouped.
- */
-function ButtonGroup(props) {
-  var attached = props.attached,
-      basic = props.basic,
-      children = props.children,
-      className = props.className,
-      color = props.color,
-      compact = props.compact,
-      content = props.content,
-      floated = props.floated,
-      fluid = props.fluid,
-      icon = props.icon,
-      inverted = props.inverted,
-      labeled = props.labeled,
-      negative = props.negative,
-      positive = props.positive,
-      primary = props.primary,
-      secondary = props.secondary,
-      size = props.size,
-      toggle = props.toggle,
-      vertical = props.vertical,
-      widths = props.widths;
-
-
-  var classes = (0, _classnames2.default)('ui', color, size, (0, _lib.useKeyOnly)(basic, 'basic'), (0, _lib.useKeyOnly)(compact, 'compact'), (0, _lib.useKeyOnly)(fluid, 'fluid'), (0, _lib.useKeyOnly)(icon, 'icon'), (0, _lib.useKeyOnly)(inverted, 'inverted'), (0, _lib.useKeyOnly)(labeled, 'labeled'), (0, _lib.useKeyOnly)(negative, 'negative'), (0, _lib.useKeyOnly)(positive, 'positive'), (0, _lib.useKeyOnly)(primary, 'primary'), (0, _lib.useKeyOnly)(secondary, 'secondary'), (0, _lib.useKeyOnly)(toggle, 'toggle'), (0, _lib.useKeyOnly)(vertical, 'vertical'), (0, _lib.useKeyOrValueAndKey)(attached, 'attached'), (0, _lib.useValueAndKey)(floated, 'floated'), (0, _lib.useWidthProp)(widths), 'buttons', className);
-  var rest = (0, _lib.getUnhandledProps)(ButtonGroup, props);
-  var ElementType = (0, _lib.getElementType)(ButtonGroup, props);
-
-  return _react2.default.createElement(
-    ElementType,
-    (0, _extends3.default)({}, rest, { className: classes }),
-    _lib.childrenUtils.isNil(children) ? content : children
-  );
-}
-
-ButtonGroup.handledProps = ['as', 'attached', 'basic', 'children', 'className', 'color', 'compact', 'content', 'floated', 'fluid', 'icon', 'inverted', 'labeled', 'negative', 'positive', 'primary', 'secondary', 'size', 'toggle', 'vertical', 'widths'];
-ButtonGroup._meta = {
-  name: 'ButtonGroup',
-  parent: 'Button',
-  type: _lib.META.TYPES.ELEMENT
-};
-
-ButtonGroup.propTypes = process.env.NODE_ENV !== "production" ? {
-  /** An element type to render as (string or function). */
-  as: _lib.customPropTypes.as,
-
-  /** Groups can be attached to other content. */
-  attached: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.oneOf(['left', 'right', 'top', 'bottom'])]),
-
-  /** Groups can be less pronounced. */
-  basic: _propTypes2.default.bool,
-
-  /** Primary content. */
-  children: _propTypes2.default.node,
-
-  /** Additional classes. */
-  className: _propTypes2.default.string,
-
-  /** Groups can have a shared color. */
-  color: _propTypes2.default.oneOf(_lib.SUI.COLORS),
-
-  /** Groups can reduce their padding to fit into tighter spaces. */
-  compact: _propTypes2.default.bool,
-
-  /** Shorthand for primary content. */
-  content: _lib.customPropTypes.contentShorthand,
-
-  /** Groups can be aligned to the left or right of its container. */
-  floated: _propTypes2.default.oneOf(_lib.SUI.FLOATS),
-
-  /** Groups can take the width of their container. */
-  fluid: _propTypes2.default.bool,
-
-  /** Groups can be formatted as icons. */
-  icon: _propTypes2.default.bool,
-
-  /** Groups can be formatted to appear on dark backgrounds. */
-  inverted: _propTypes2.default.bool,
-
-  /** Groups can be formatted as labeled icon buttons. */
-  labeled: _propTypes2.default.bool,
-
-  /** Groups can hint towards a negative consequence. */
-  negative: _propTypes2.default.bool,
-
-  /** Groups can hint towards a positive consequence. */
-  positive: _propTypes2.default.bool,
-
-  /** Groups can be formatted to show different levels of emphasis. */
-  primary: _propTypes2.default.bool,
-
-  /** Groups can be formatted to show different levels of emphasis. */
-  secondary: _propTypes2.default.bool,
-
-  /** Groups can have different sizes. */
-  size: _propTypes2.default.oneOf(_lib.SUI.SIZES),
-
-  /** Groups can be formatted to toggle on and off. */
-  toggle: _propTypes2.default.bool,
-
-  /** Groups can be formatted to appear vertically. */
-  vertical: _propTypes2.default.bool,
-
-  /** Groups can have their widths divided evenly. */
-  widths: _propTypes2.default.oneOf(_lib.SUI.WIDTHS)
-} : {};
-
-exports.default = ButtonGroup;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 519 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends2 = __webpack_require__(2);
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _classnames = __webpack_require__(4);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lib = __webpack_require__(5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Button groups can contain conditionals.
- */
-function ButtonOr(props) {
-  var className = props.className,
-      text = props.text;
-
-  var classes = (0, _classnames2.default)('or', className);
-  var rest = (0, _lib.getUnhandledProps)(ButtonOr, props);
-  var ElementType = (0, _lib.getElementType)(ButtonOr, props);
-
-  return _react2.default.createElement(ElementType, (0, _extends3.default)({}, rest, { className: classes, 'data-text': text }));
-}
-
-ButtonOr.handledProps = ['as', 'className', 'text'];
-ButtonOr._meta = {
-  name: 'ButtonOr',
-  parent: 'Button',
-  type: _lib.META.TYPES.ELEMENT
-};
-
-ButtonOr.propTypes = process.env.NODE_ENV !== "production" ? {
-  /** An element type to render as (string or function). */
-  as: _lib.customPropTypes.as,
-
-  /** Additional classes. */
-  className: _propTypes2.default.string,
-
-  /** Or buttons can have their text localized, or adjusted by using the text prop. */
-  text: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string])
-} : {};
-
-exports.default = ButtonOr;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
+/* 517 */,
+/* 518 */,
+/* 519 */,
 /* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -41164,148 +40528,173 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ChatView = function (_Component) {
   _inherits(ChatView, _Component);
 
-  function ChatView() {
+  function ChatView(props) {
     _classCallCheck(this, ChatView);
 
-    return _possibleConstructorReturn(this, (ChatView.__proto__ || Object.getPrototypeOf(ChatView)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ChatView.__proto__ || Object.getPrototypeOf(ChatView)).call(this, props));
+
+    _this.state = {
+      text: ''
+    };
+    _this.handleMessageSend = _this.handleMessageSend.bind(_this);
+    return _this;
   }
 
   _createClass(ChatView, [{
-    key: "render",
+    key: 'handleMessageSend',
+    value: function handleMessageSend() {
+      var message = {
+        text: this.state.text,
+        user: this.props.user.name
+      };
+      socket.emit('chat message', message);
+    }
+  }, {
+    key: 'enterText',
+    value: function enterText(e) {
+      e.preventDefault();
+      this.setState({
+        text: e.target.value
+      });
+    }
+  }, {
+    key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
-        "div",
-        { className: "ui comments" },
+        'div',
+        { className: 'ui container comments' },
         _react2.default.createElement(
-          "h3",
-          { className: "ui dividing header" },
-          "Comments"
+          'h3',
+          { className: 'ui dividing header' },
+          'Comments'
         ),
         _react2.default.createElement(
-          "div",
-          { className: "comment" },
+          'div',
+          { className: 'comment' },
           _react2.default.createElement(
-            "a",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "/images/avatar/small/matt.jpg" })
+            'a',
+            { className: 'avatar' },
+            _react2.default.createElement('img', { src: '/images/avatar/small/matt.jpg' })
           ),
           _react2.default.createElement(
-            "div",
-            { className: "content" },
+            'div',
+            { className: 'content' },
             _react2.default.createElement(
-              "a",
-              { className: "author" },
-              "Matt"
+              'a',
+              { className: 'author' },
+              'Matt'
             ),
             _react2.default.createElement(
-              "div",
-              { className: "metadata" },
+              'div',
+              { className: 'metadata' },
               _react2.default.createElement(
-                "span",
-                { className: "date" },
-                "Today at 5:42PM"
+                'span',
+                { className: 'date' },
+                'Today at 5:42PM'
               )
             ),
             _react2.default.createElement(
-              "div",
-              { className: "text" },
-              "How artistic!"
+              'div',
+              { className: 'text' },
+              'How artistic!'
             ),
             _react2.default.createElement(
-              "div",
-              { className: "actions" },
+              'div',
+              { className: 'actions' },
               _react2.default.createElement(
-                "a",
-                { className: "reply" },
-                "Reply"
+                'a',
+                { className: 'reply' },
+                'Reply'
               )
             )
           )
         ),
         _react2.default.createElement(
-          "div",
-          { className: "comment" },
+          'div',
+          { className: 'comment' },
           _react2.default.createElement(
-            "a",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "/images/avatar/small/elliot.jpg" })
+            'a',
+            { className: 'avatar' },
+            _react2.default.createElement('img', { src: '/images/avatar/small/elliot.jpg' })
           ),
           _react2.default.createElement(
-            "div",
-            { className: "content" },
+            'div',
+            { className: 'content' },
             _react2.default.createElement(
-              "a",
-              { className: "author" },
-              "Elliot Fu"
+              'a',
+              { className: 'author' },
+              'Elliot Fu'
             ),
             _react2.default.createElement(
-              "div",
-              { className: "metadata" },
+              'div',
+              { className: 'metadata' },
               _react2.default.createElement(
-                "span",
-                { className: "date" },
-                "Yesterday at 12:30AM"
+                'span',
+                { className: 'date' },
+                'Yesterday at 12:30AM'
               )
             ),
             _react2.default.createElement(
-              "div",
-              { className: "text" },
+              'div',
+              { className: 'text' },
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "This has been very useful for my research. Thanks as well!"
+                'This has been very useful for my research. Thanks as well!'
               )
             ),
             _react2.default.createElement(
-              "div",
-              { className: "actions" },
+              'div',
+              { className: 'actions' },
               _react2.default.createElement(
-                "a",
-                { className: "reply" },
-                "Reply"
+                'a',
+                { className: 'reply' },
+                'Reply'
               )
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "comments" },
+            'div',
+            { className: 'comments' },
             _react2.default.createElement(
-              "div",
-              { className: "comment" },
+              'div',
+              { className: 'comment' },
               _react2.default.createElement(
-                "a",
-                { className: "avatar" },
-                _react2.default.createElement("img", { src: "/images/avatar/small/jenny.jpg" })
+                'a',
+                { className: 'avatar' },
+                _react2.default.createElement('img', { src: '/images/avatar/small/jenny.jpg' })
               ),
               _react2.default.createElement(
-                "div",
-                { className: "content" },
+                'div',
+                { className: 'content' },
                 _react2.default.createElement(
-                  "a",
-                  { className: "author" },
-                  "Jenny Hess"
+                  'a',
+                  { className: 'author' },
+                  'Jenny Hess'
                 ),
                 _react2.default.createElement(
-                  "div",
-                  { className: "metadata" },
+                  'div',
+                  { className: 'metadata' },
                   _react2.default.createElement(
-                    "span",
-                    { className: "date" },
-                    "Just now"
+                    'span',
+                    { className: 'date' },
+                    'Just now'
                   )
                 ),
                 _react2.default.createElement(
-                  "div",
-                  { className: "text" },
-                  "Elliot you are always so right :)"
+                  'div',
+                  { className: 'text' },
+                  'Elliot you are always so right :)'
                 ),
                 _react2.default.createElement(
-                  "div",
-                  { className: "actions" },
+                  'div',
+                  { className: 'actions' },
                   _react2.default.createElement(
-                    "a",
-                    { className: "reply" },
-                    "Reply"
+                    'a',
+                    { className: 'reply' },
+                    'Reply'
                   )
                 )
               )
@@ -41313,59 +40702,61 @@ var ChatView = function (_Component) {
           )
         ),
         _react2.default.createElement(
-          "div",
-          { className: "comment" },
+          'div',
+          { className: 'comment' },
           _react2.default.createElement(
-            "a",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "/images/avatar/small/joe.jpg" })
+            'a',
+            { className: 'avatar' },
+            _react2.default.createElement('img', { src: '/images/avatar/small/joe.jpg' })
           ),
           _react2.default.createElement(
-            "div",
-            { className: "content" },
+            'div',
+            { className: 'content' },
             _react2.default.createElement(
-              "a",
-              { className: "author" },
-              "Joe Henderson"
+              'a',
+              { className: 'author' },
+              'Joe Henderson'
             ),
             _react2.default.createElement(
-              "div",
-              { className: "metadata" },
+              'div',
+              { className: 'metadata' },
               _react2.default.createElement(
-                "span",
-                { className: "date" },
-                "5 days ago"
+                'span',
+                { className: 'date' },
+                '5 days ago'
               )
             ),
             _react2.default.createElement(
-              "div",
-              { className: "text" },
-              "Dude, this is awesome. Thanks so much"
+              'div',
+              { className: 'text' },
+              'Dude, this is awesome. Thanks so much'
             ),
             _react2.default.createElement(
-              "div",
-              { className: "actions" },
+              'div',
+              { className: 'actions' },
               _react2.default.createElement(
-                "a",
-                { className: "reply" },
-                "Reply"
+                'a',
+                { className: 'reply' },
+                'Reply'
               )
             )
           )
         ),
         _react2.default.createElement(
-          "form",
-          { className: "ui reply form" },
+          'form',
+          { className: 'ui reply form' },
           _react2.default.createElement(
-            "div",
-            { className: "field" },
-            _react2.default.createElement("textarea", null)
+            'div',
+            { className: 'field' },
+            _react2.default.createElement('textarea', { onChange: function onChange(e) {
+                return _this2.enterText(e);
+              }, value: this.state.text })
           ),
           _react2.default.createElement(
-            "div",
-            { className: "ui blue labeled submit icon button" },
-            _react2.default.createElement("i", { className: "icon edit" }),
-            " Add Reply"
+            'div',
+            { onClick: this.handleMessageSend, className: 'ui blue labeled submit icon button' },
+            _react2.default.createElement('i', { className: 'icon edit' }),
+            ' Add Reply'
           )
         )
       );
@@ -41429,7 +40820,13 @@ var SignUp = function (_Component) {
     key: 'handleChange',
     value: function handleChange(e) {
       e.preventDefault();
-      console.log('E', e.target.name, 'HTML', e.target.innerHTML, 'targ', e.target);
+      console.log('E', e.target.name, 'HTML', e.target.innerHTML, 'targ', e.target.value);
+      var name = e.target.name;
+      var value = e.target.value;
+      var obj = this.state;
+      obj[name] = value;
+      this.setState(obj);
+      console.log(this.state);
     }
   }, {
     key: 'addScene',
@@ -41461,7 +40858,6 @@ var SignUp = function (_Component) {
           break;
         }
       }
-
       var scenes = this.state.scene;
       console.log(scenes, "scenes", counter, 'index');
       scenes.splice(counter, 1);
@@ -41926,11 +41322,6 @@ var SignUp = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'field' },
-            _react2.default.createElement(
-              'label',
-              null,
-              'Scene'
-            ),
             _react2.default.createElement(
               'select',
               { onChange: function onChange(e) {

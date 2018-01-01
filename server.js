@@ -26,6 +26,9 @@ app.get('*', (req, res) => {
 // Socket config
 io.on('connection', (socket) => {
   console.log('User connected');
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg.text + 'From: ' + msg.user);
+  });
   socket.on('disconnect', () => {
     console.log('User disconnected');
   })

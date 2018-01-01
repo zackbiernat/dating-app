@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 
 export default class ChatView extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      text: ''
+    };
+    this.handleMessageSend = this.handleMessageSend.bind(this);
+  }
+
+  handleMessageSend () {
+    let message = {
+      text: this.state.text,
+      user: this.props.user.name
+    }
+    socket.emit('chat message', message);
+  }
+
+  enterText (e) {
+    e.preventDefault();
+    this.setState({
+      text: e.target.value
+    });
+  }
   render () {
     return (
-      <div className="ui comments">
+      <div className="ui container comments">
         <h3 className="ui dividing header">Comments</h3>
         <div className="comment">
           <a className="avatar">
@@ -77,9 +99,9 @@ export default class ChatView extends Component {
         </div>
         <form className="ui reply form">
           <div className="field">
-            <textarea></textarea>
+            <textarea onChange={e => this.enterText(e)} value={this.state.text}></textarea>
           </div>
-          <div className="ui blue labeled submit icon button">
+          <div onClick={this.handleMessageSend} className="ui blue labeled submit icon button">
             <i className="icon edit"></i> Add Reply
           </div>
         </form>
