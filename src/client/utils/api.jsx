@@ -1,5 +1,5 @@
 const contentType = 'application/json; charset=UTF-8';
-const DEPLOYED_API = 'http://localhost:3000/';
+const DEPLOYED_API = process.env.DEPLOYED_URL || 'http://localhost:3000/';
 
 const getOptions = {
   method: 'GET',

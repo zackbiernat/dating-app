@@ -80,7 +80,12 @@ export default class Main extends Component {
     }
   }
   render() {
-    const socket = io('http://localhost:3000');
+    let socket;
+    if (process.env.STATUS === 'prod') {
+      socket = io('https://mingly.herokuapp.com')
+    } else {
+      socket = io('http://localhost:3000');
+    }
     return (
       <div className="Main">
         <Sidebar.Pushable as={Segment}>
