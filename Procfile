@@ -1,1 +1,1 @@
-web: npm run build-production && npm run server
+web: webpack && node index.js
