@@ -8,6 +8,7 @@
 
 # production
 /src/public/dist
+/src/public/dist/bundle.js
 
 # misc
 .DS_Store

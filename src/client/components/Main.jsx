@@ -3,7 +3,7 @@ import SpeedListView from './SpeedListView.jsx';
 import ChatView from './Chat.jsx';
 import SignUpView from './SignUp.jsx';
 import SignInView from './SignIn.jsx';
-import { PostUser, GetUser } from './../Utils/api.jsx';
+import { PostUser, GetUser, GetConvo } from './../Utils/api.jsx';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 import io from 'socket.io-client';
 //import ReactCursorPosition from 'react-cursor-position';
@@ -15,7 +15,8 @@ export default class Main extends Component {
       profile: props.profile,
       isChatting: false,
       isFeed: true,
-      target: null
+      target: null,
+      targetConvo: []
     }
     this.toggleFeed = this.toggleFeed.bind(this);
     this.toggleChat = this.toggleChat.bind(this);
@@ -55,8 +56,18 @@ export default class Main extends Component {
     this.setState({
       target: target
     });
-    this.toggleChat();
+    let toId = target._id;
+    let fromId = this.state.profile._id;
+    GetConvo(toId, fromId, (err, convo) => {
+      if (!err) {
+        this.setState({
+          targetConvo: convo
+        });
+      }
+      this.toggleChat();
+    })
   }
+
 
 
   componentDidMount () {
@@ -92,7 +103,7 @@ export default class Main extends Component {
                   {this.state.isFeed ?
                 <SpeedListView handleTarget={this.handleTarget} />
                 :
-                <ChatView target={this.state.target} profile={this.state.profile} socket={socket} />
+                <ChatView refreshConvo={this.handleTarget} convo={this.state.targetConvo} target={this.state.target} profile={this.state.profile} socket={socket} />
               }</div>}
             </Segment>
           </Sidebar.Pusher>

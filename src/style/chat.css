@@ -1,0 +1,38 @@
+.comment-container {
+  margin-bottom: 20px;
+  margin-top: 50px;
+  padding: 20px;
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+  border: 1px groove grey;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.sent-message {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.received-message {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.message-username {
+  font-weight: bold;
+}
+
+.message-content {
+  padding: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  background-color: lightblue;
+  border: 1px groove lightblue;
+  box-shadow: 1px 1px 5px lightblue;
+  border-radius: 15px;
+}
+
+.response-field {
+  width: 550px !important;
+  height: 50px;
+}

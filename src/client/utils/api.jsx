@@ -66,7 +66,6 @@ module.exports = {
       return response.json();
     })
     .then((data) => {
-      console.log('DATA', data)
       cb(null, data);
     })
     .catch((error) => {
@@ -74,10 +73,14 @@ module.exports = {
       cb(error, null);
     });
   },
-  GetConvo: (profile, cb) => {
+  GetConvo: (toId, fromId, cb) => {
     let route = DEPLOYED_API + 'api/conversation';
     let options = postOptions;
-    options.body = JSON.stringify(profile);
+    let config = {
+      toId: toId,
+      fromId: fromId
+    };
+    options.body = JSON.stringify(config);
     return fetch(route, options)
     .then((response) => {
       return response.json();
