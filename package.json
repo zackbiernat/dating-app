@@ -32,6 +32,7 @@
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
     "server": "nodemon server.js",
     "build": "webpack --config webpack.config.js --progress --colors --watch",
+    "build-production": "webpack --webpack.config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
