@@ -8,7 +8,6 @@ let findUserByEmail = require('.././utils/userHelpers.js').findUserByEmail;
 exports.getUserProfile = (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  console.log('Email', email, 'Pass', password)
   MongoClient.connect(url, (err, db) => {
     if (err) {
       return console.error(err);
@@ -18,7 +17,7 @@ exports.getUserProfile = (req, res) => {
           console.log('Pass', password, 'datapass', user[0].password)
         if (user[0].password === password) {
           let token = jwt.sign({user}, 'big-time-hash');
-          res.token = token;
+          res.set('token', token);
           console.log('user', user[0]);
           res.status(200).send(user[0]);
         }

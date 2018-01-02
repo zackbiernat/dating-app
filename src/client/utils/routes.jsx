@@ -11,10 +11,8 @@ let profile = null;
 
 const handleLogin = (email, password) => {
     GetUser(email, password, (err, response) => {
-      console.log(err, response)
       if (!err) {
         profile = response;
-        localStorage.setItem('dating-token', res.token);
         window.location = '/';
       } else {
         console.log('EERRRRR', err)

@@ -5,19 +5,22 @@ import SignUpView from './SignUp.jsx';
 import SignInView from './SignIn.jsx';
 import { PostUser } from './../Utils/api.jsx';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
+import io from 'socket.io-client';
 //import ReactCursorPosition from 'react-cursor-position';
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: true,
-      profile: props.profile
+      profile: props.profile,
+      isChatting: false,
+      isFeed: true
     }
     this.toggleVisibility = this.toggleVisibility.bind(this);
   }
   toggleVisibility () {
     this.setState({
-      visible: !this.state.visible
+      visible: !this.state.visible,
     })
   }
 
@@ -26,6 +29,7 @@ export default class Main extends Component {
     let token = localStorage.getItem('dating-token');
     if (token !== "undefined" && token !== null && token !== undefined) {
       console.log('token found!')
+      const socket = io('http://localhost:3000');
     } else {
       window.location = '/login';
     }
@@ -46,11 +50,11 @@ export default class Main extends Component {
           </Sidebar>
           <Sidebar.Pusher>
             <Segment basic>
-              <SignInView
-                handleLogin={this.handleLogin}
-              />
+              {this.state.isFeed ?
+              <SpeedListView />
+               :
               <ChatView />
-              <SignUpView />
+              }
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>

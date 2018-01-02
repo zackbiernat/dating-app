@@ -58,13 +58,11 @@ module.exports = {
       email: email,
       password: password
     };
-    console.log('body', body)
     options.body = JSON.stringify(body);
-    console.log('options', options.body)
     fetch(route, options)
     .then((response) => {
-      console.log('REsponse', response);
-      console.log('REsponse', response.json());
+      let token = response.headers.get("token");
+      localStorage.setItem('dating-token', token);
       return response.json();
     })
     .then((data) => {
