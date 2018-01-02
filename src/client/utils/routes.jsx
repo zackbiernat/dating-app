@@ -7,16 +7,16 @@ import App from '.././App.jsx';
 import history from './history.jsx';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 
-let profile = null;
+let profile;
 
 const handleLogin = (email, password) => {
     GetUser(email, password, (err, response) => {
       if (!err) {
         profile = response;
-        window.location = '/';
       } else {
         console.log('EERRRRR', err)
       }
+      window.location = '/';
     })
   }
 
