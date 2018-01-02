@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 require('dotenv').config();
 
 // const getSinglesBySex;
@@ -11,7 +12,7 @@ const postUser = require('./models/User.js').postUserProfile;
 // const getConversationsById;
 
 // USER endpoints
-router.get('/api/user', getUserByEmail);
+router.post('/api/auth', getUserByEmail);
 router.post('/api/user', postUser);
 
 

@@ -7,9 +7,8 @@ let http = require('http').Server(app);
 let io = require('socket.io')(http);
 require('dotenv').config();
 
-
 let corsOption = {
-  origin: true,
+  origin: "*",
   methods: 'OPTIONS,GET,HEAD,PUT,POST,DELETE',
   credentials: true
 };
@@ -32,12 +31,11 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('User disconnected');
   })
-})
+});
 
 const port = process.env.PORT || 3000;
-
-
-http.listen(port, () => {
+app.listen(port, () => {
   console.log('SERVER STARTED: Listening on port:' + port);
 });
+
 

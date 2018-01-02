@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import SpeedListView from './SpeedListView.jsx';
 import ChatView from './Chat.jsx';
-import SignUpView from './Signup.jsx';
+import SignUpView from './SignUp.jsx';
+import SignInView from './SignIn.jsx';
+import { PostUser } from './../Utils/api.jsx';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 //import ReactCursorPosition from 'react-cursor-position';
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: true
+      visible: true,
+      profile: props.profile
     }
     this.toggleVisibility = this.toggleVisibility.bind(this);
   }
@@ -18,8 +21,14 @@ export default class Main extends Component {
     })
   }
 
+
   componentDidMount () {
-    console.log('socket', socket);
+    let token = localStorage.getItem('dating-token');
+    if (token !== "undefined" && token !== null && token !== undefined) {
+      console.log('token found!')
+    } else {
+      window.location = '/login';
+    }
   }
   render() {
     return (
@@ -37,12 +46,14 @@ export default class Main extends Component {
           </Sidebar>
           <Sidebar.Pusher>
             <Segment basic>
+              <SignInView
+                handleLogin={this.handleLogin}
+              />
               <ChatView />
               <SignUpView />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
-
       </div>
     );
   }

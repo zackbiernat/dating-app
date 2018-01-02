@@ -50,5 +50,30 @@ module.exports = {
       console.log('Error Caught!', error);
       cb(error, null);
     });
+  },
+  GetUser: (email, password, cb) => {
+    let route = DEPLOYED_API + 'api/auth';
+    let options = postOptions;
+    let body = {
+      email: email,
+      password: password
+    };
+    console.log('body', body)
+    options.body = JSON.stringify(body);
+    console.log('options', options.body)
+    fetch(route, options)
+    .then((response) => {
+      console.log('REsponse', response);
+      console.log('REsponse', response.json());
+      return response.json();
+    })
+    .then((data) => {
+      console.log('DATA', data)
+      cb(null, data);
+    })
+    .catch((error) => {
+      console.log('Error Caught!', error);
+      cb(error, null);
+    });
   }
 }

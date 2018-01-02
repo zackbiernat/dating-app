@@ -1,24 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devServer: {
       historyApiFallback: {
         index: path.join(__dirname, "src/public/index.html")
       },
-      index: path.join(__dirname, "src/public/index.html"),
-
       compress: true,
       overlay: {
         errors: true,
-        warnings: true,
+        warnings: true
       },
       stats: "errors-only",
       host: 'localhost',
       port: 3000
     },
-    entry: "./src/index.jsx",
+    entry: "./src/client/index.jsx",
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, 'src/public/dist')

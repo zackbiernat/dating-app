@@ -15,7 +15,8 @@ export default class SignUp extends Component {
       zip: 99999,
       status: '',
       seeking: '',
-      scene: []
+      scene: [],
+      password: ''
     }
     this.handleCreateProfile = this.handleCreateProfile.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -28,7 +29,6 @@ export default class SignUp extends Component {
     let obj = this.state;
     obj[name] = value;
     this.setState(obj);
-    // POST request to create profile
   }
 
   addScene (e) {
@@ -82,15 +82,21 @@ export default class SignUp extends Component {
       <form className="ui form">
         <h4 className="ui dividing header">Profile Information</h4>
         <div className="field">
-          <label>Username</label>
+          <label>Email</label>
           <div className="field">
-            <input onChange={e => this.handleChange(e)} type="text" name="username" placeholder="Pick a username" />
+            <input onChange={e => this.handleChange(e)} type="text" name="email" placeholder="What's your email?" />
+          </div>
+        </div>
+        <div className="field">
+          <label>Password</label>
+          <div className="field">
+            <input onChange={e => this.handleChange(e)} type="password" name="password" placeholder="Choose a password" />
           </div>
         </div>
         <div className="field">
           <label>Username</label>
           <div className="field">
-            <input onChange={e => this.handleChange(e)} type="text" name="email" placeholder="What's your email?" />
+            <input onChange={e => this.handleChange(e)} type="text" name="username" placeholder="Pick a username" />
           </div>
         </div>
         <div className="field">
