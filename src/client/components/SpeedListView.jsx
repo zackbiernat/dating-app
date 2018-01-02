@@ -10,6 +10,7 @@ export default class SpeedListView extends Component {
         {mockData.SampleCardData.map((person, key) => {
           return (
               <SpeedListCard
+                handleTarget={this.props.handleTarget}
                 profile={person}
                 key={key}
                />

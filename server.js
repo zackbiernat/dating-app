@@ -6,6 +6,8 @@ const dbRouting = require('./src/server/config.js');
 let http = require('http').Server(app);
 require('dotenv').config();
 
+const postConversations = require('./src/server/models/Conversation.js').postConversations;
+
 let corsOption = {
   origin: "*",
   methods: 'OPTIONS,GET,HEAD,PUT,POST,DELETE',
@@ -27,12 +29,13 @@ const port = process.env.PORT || 3000;
 let server = app.listen(port, () => {
   console.log('SERVER STARTED: Listening on port:' + port);
 });
-let io = require('socket.io').listen(server);
+
 // Socket config
+let io = require('socket.io').listen(server);
 io.on('connection', (socket) => {
   console.log('User connected');
   socket.on('chat message', function(msg){
-    console.log('message: ' + msg.text + 'From: ' + msg.user);
+    postConversations(msg.toId, msg.fromId, msg.toUN, msg.fromUN, msg.message)
   });
   socket.on('disconnect', () => {
     console.log('User disconnected');

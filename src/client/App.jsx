@@ -9,7 +9,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main profile={this.props.profile} />
+        <Main />
       </div>
     );
   }

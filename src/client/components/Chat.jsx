@@ -11,8 +11,11 @@ export default class ChatView extends Component {
 
   handleMessageSend () {
     let message = {
-      text: this.state.text,
-      user: this.props.profile.username
+      message: this.state.text,
+      fromId: this.props.profile._id,
+      toId: this.props.target._id,
+      fromUN: this.props.profile.username,
+      toUN: this.props.target.username
     }
     this.props.socket.emit('chat message', message);
   }

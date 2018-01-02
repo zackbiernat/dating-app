@@ -73,5 +73,21 @@ module.exports = {
       console.log('Error Caught!', error);
       cb(error, null);
     });
-  }
+  },
+  GetConvo: (profile, cb) => {
+    let route = DEPLOYED_API + 'api/conversation';
+    let options = postOptions;
+    options.body = JSON.stringify(profile);
+    return fetch(route, options)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      cb(null, data);
+    })
+    .catch((error) => {
+      console.log('Error Caught!', error);
+      cb(error, null);
+    });
+  },
 }

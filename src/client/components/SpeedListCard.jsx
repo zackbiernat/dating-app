@@ -6,7 +6,7 @@ export default class SpeedListCard extends Component {
   render() {
     return (
       <div className="column">
-        <Card>
+        <Card onClick={() => this.props.handleTarget(this.props.profile)}>
           <Image src={this.props.profile.picture} />
           <Card.Content>
             <Card.Header>
